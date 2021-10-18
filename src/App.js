@@ -5,22 +5,38 @@ import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
-import PlantForm from "./components/Plant_Form"
+import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
 import Plant_List from "./components/Plants_List";
+<<<<<<< HEAD
+import schema from "./Form_Schema"
+import * yup from "yup";
+=======
 import schema from "./Form_Schema";
 import * as yup from "yup";
+>>>>>>> main
 
 
 const initial_plant_values = [];
 const initial_disabled = true;
 
 const initial_form_values = {
+    nickname: "",
+    species: "",
+    h2oFrequency: "",
+    image:"",
+
+  }
+
+const initial_form_errors={
     nickname:"",
     species:"",
     h2oFrequency:"",
     image:""
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 }
 const fake_plant = {
     nickname: "Vern",
@@ -28,10 +44,19 @@ const fake_plant = {
     h2oFrequency: "alot",
     image:"stuff"
 
+<<<<<<< HEAD
+function App() {
+
+    const [form_values, set_form_values] = useState(initial_form_values);
+    const [plants, set_plant_values] = useState(initial_plant_values);
+    const [disabled, set_disabled] = useState(initial_disabled);
+    const [errors, set_errors]=useState(initial_form_errors)
+=======
 }
 
 
 
+>>>>>>> main
 
 
 function App() {
@@ -69,8 +94,19 @@ function App() {
     const change= (evt) =>{
         if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
         // validate(evt.target.name, evt.target.value);
-      }
-
+    }
+    
+    const submit = evt => {
+        const newPlant = {
+            nickname: form_values.nickname.trim(),
+            species: form_values.species.trim(),
+            h2oFrequency: form_values.h2oFrequency.trim(),
+            image: form_values.image.trim(),
+           
+        }
+        // postPlant(newPlant)
+        console.log(newPlant)
+    }
 
     // const validate = (name, value) => {
     //     yup.reach(schema, name)
@@ -110,7 +146,7 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <PlantForm change={change} form_values={form_values}/>
+                <Plant_Form change={change} form_values={form_values} submit={submit}/>
             </Route>
         </div>
     </div>
@@ -120,7 +156,7 @@ function App() {
         </Route>
     </div>
     <div>
-        <Route path="/plant-list" >
+        <Route path="/Plants_List" >
             <Plant_List plants={plants}/>
         </Route>
     </div>

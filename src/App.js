@@ -7,18 +7,15 @@ import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
-<<<<<<< HEAD
+
 import Plants_List from "./components/Plants_List";
-=======
-import Plant_List from "./components/Plants_List";
-<<<<<<< HEAD
->>>>>>> 0614c6933cc1a5da83d117bc8100d120f89fdf50
+
+
+
+
+
 import schema from "./Form_Schema"
 import * yup from "yup";
-=======
-import schema from "./Form_Schema";
-import * as yup from "yup";
->>>>>>> main
 
 
 const initial_plant_values = [];
@@ -37,18 +34,10 @@ const initial_form_errors={
     species:"",
     h2oFrequency:"",
     image:""
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 }
-const fake_plant = {
-    nickname: "Vern",
-    species : "some shit",
-    h2oFrequency: "alot",
-    image:"stuff"
 
-<<<<<<< HEAD
+
 function App() {
 
     const [form_values, set_form_values] = useState(initial_form_values);
@@ -58,15 +47,10 @@ function App() {
 =======
 }
 
-
-
->>>>>>> main
-
-
 function App() {
 
-    const [form_values, set_form_values] = useState(fake_plant);
-    const [plants, set_plant_values] = useState(fake_plant);
+    const [form_values, set_form_values] = useState(initial_form_values);
+    const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
 
     console.log(plants)

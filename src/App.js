@@ -100,17 +100,6 @@ function App() {
         // validate(evt.target.name, evt.target.value);
     }
     
-    const submit = evt => {
-        const newPlant = {
-            nickname: form_values.nickname.trim(),
-            species: form_values.species.trim(),
-            h2oFrequency: form_values.h2oFrequency.trim(),
-            image: form_values.image.trim(),
-           
-        }
-        // postPlant(newPlant)
-        console.log(newPlant)
-    }
 
     // const validate = (name, value) => {
     //     yup.reach(schema, name)
@@ -150,7 +139,7 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form change={change} form_values={form_values} submit={submit}/>
+                <Plant_Form change={change} form_values={form_values} submit={form_submit}/>
             </Route>
         </div>
     </div>

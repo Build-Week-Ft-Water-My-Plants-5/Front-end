@@ -47,7 +47,7 @@ function App() {
         Water My Plants
     </div>
     <div className="home-component">
-        <Route path="/">
+        <Route exact path="/">
             <Login />
         </Route>
     </div>
@@ -57,7 +57,7 @@ function App() {
         </Route>
     </div>
     <div>
-        <Route path="plant-list" >
+        <Route path="/plant-list" >
             <Plant_List plants={plants}/>
         </Route>
     </div>

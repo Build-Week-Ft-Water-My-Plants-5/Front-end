@@ -19,26 +19,28 @@ const initial_form_values = {
     nickname:"",
     species:"",
     h2oFrequency:"",
-    image:"",
+    image:""
+
+}
+const fake_plant = {
+    nickname: "Vern",
+    species : "some shit",
+    h2oFrequency: "alot",
+    image:"stuff"
 
 }
 
 
-const initial_plant_values = [];
 
-const initialFormValues = {
-    nickname: '',
-    species: '',
-    h2oFrequency: '',
-    image:''
-  }
+
 
 function App() {
 
-    const [form_values, set_form_values] = useState(initial_form_values);
-    const [plants, set_plant_values] = useState(initial_plant_values);
+    const [form_values, set_form_values] = useState(fake_plant);
+    const [plants, set_plant_values] = useState(fake_plant);
     const [disabled, set_disabled] = useState(initial_disabled);
 
+    console.log(plants)
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
             .then(res => {
@@ -59,7 +61,7 @@ function App() {
             })
             .finally(() =>{
                 set_form_values(initial_form_values)
-            })
+            }, [form_values])
 
     }
 
@@ -102,6 +104,7 @@ function App() {
         <div className="home-component">
             <Route path="/">
                 <Home />
+
             </Route>
         </div>
         <div>

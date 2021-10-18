@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
-import PlantForm from "./components/Plant_Form"
+import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
 import Plant_List from "./components/Plants_List";
 import schema from "./Form_Schema"
@@ -53,8 +53,19 @@ function App() {
     const change= (evt) =>{
         if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
         // validate(evt.target.name, evt.target.value);
-      }
-
+    }
+    
+    const submit = evt => {
+        const newPlant = {
+            nickname: form_values.nickname.trim(),
+            species: form_values.species.trim(),
+            h2oFrequency: form_values.h2oFrequency.trim(),
+            image: form_values.image.trim(),
+           
+        }
+        // postPlant(newPlant)
+        console.log(newPlant)
+    }
 
     return (
      <>
@@ -74,7 +85,7 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <PlantForm change={change} form_values={form_values}/>
+                <Plant_Form change={change} form_values={form_values} submit={submit}/>
             </Route>
         </div>
     </div>
@@ -89,7 +100,7 @@ function App() {
         </Route>
     </div>
     <div>
-        <Route path="/plant-list" >
+        <Route path="/Plants_List" >
             <Plant_List plants={plants}/>
         </Route>
     </div>

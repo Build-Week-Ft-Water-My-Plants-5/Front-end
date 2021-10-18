@@ -5,7 +5,7 @@ export default function Plant(props) {
 
     return (
         <>
-            <div>
+            <div className="plant-card">
                 <h3>Plant Info</h3>
                 <p>{plant.nickname}</p>
                 <p>{plant.species}</p>

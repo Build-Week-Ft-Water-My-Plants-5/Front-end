@@ -9,23 +9,25 @@ import PlantForm from "./components/Plant_Form"
 import Home from "./components/Home"
 import Plant_List from "./components/Plants_List";
 import schema from "./Form_Schema"
+import * yup from "yup";
 
 
 const initial_plant_values = [];
 const initial_disabled = true;
 
 const initial_form_values = {
-    nickname: '',
-    species: '',
-    h2oFrequency: '',
-    image:'',
+    nickname: "",
+    species: "",
+    h2oFrequency: "",
+    image:"",
+
   }
 
 const initial_form_errors={
-    nickname:'',
-    species:'',
-    h2oFrequency:'',
-    image:'',
+    nickname:"",
+    species:"",
+    h2oFrequency:"",
+    image:""
 }
 
 function App() {

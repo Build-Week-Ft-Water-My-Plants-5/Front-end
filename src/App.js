@@ -23,7 +23,6 @@ const initial_form_values = {
 }
 
 
-const initial_plant_values = [];
 
 const initialFormValues = {
     nickname: '',
@@ -66,6 +65,7 @@ function App() {
                 <Link to="/">Home</Link>
                 <Link to="/Plant_Form">Add New Plant</Link>
                 <Link to="/Plants_List">My Plants</Link>
+                <Link to="/signup">Signup</Link>
             </nav>
             <h1>Water My Plants</h1>
         </header>   
@@ -79,11 +79,6 @@ function App() {
                 <PlantForm change={change} form_values={form_values}/>
             </Route>
         </div>
-    </div>
-    <div className="home-component">
-        <Route exact path="/">
-            <Login />
-        </Route>
     </div>
     <div className="home-component">
         <Route path="/signup">

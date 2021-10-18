@@ -2,7 +2,8 @@ import React, {useEffect, useState } from "react"
 import './App.css';
 import axios from 'axios';
 import { Route, Link } from "react-router-dom";
-import Home from "./components/Home";
+import Login from "./components/Home";
+import Signup from "./components/Sign_Up";
 import Plant_List from "./components/Plants_List";
 
 
@@ -20,25 +21,6 @@ function App() {
 
     }, [])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
      <>
     <div className="App">
@@ -46,7 +28,12 @@ function App() {
     </div>
     <div className="home-component">
         <Route path="/">
-            <Home />
+            <Login />
+        </Route>
+    </div>
+    <div className="home-component">
+        <Route path="/signup">
+            <Signup />
         </Route>
     </div>
     <div>

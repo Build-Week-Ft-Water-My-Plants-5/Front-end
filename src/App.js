@@ -15,29 +15,25 @@ const initial_plant_values = [];
 const initial_disabled = true;
 
 const initial_form_values = {
-    nickname:"",
-    species:"",
-    h2oFrequency:"",
-    image:"",
-
-}
-
-
-const initial_plant_values = [];
-
-const initialFormValues = {
     nickname: '',
     species: '',
     h2oFrequency: '',
     image:'',
-    user_id:''
   }
+
+const initial_form_errors={
+    nickname:'',
+    species:'',
+    h2oFrequency:'',
+    image:'',
+}
 
 function App() {
 
     const [form_values, set_form_values] = useState(initial_form_values);
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
+    const [errors, set_errors]=useState(initial_form_errors)
 
 
 

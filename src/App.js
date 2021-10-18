@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
 import Plant_List from "./components/Plants_List";
-import Plant from "./components/Plant";
+import schema from "./Form_Schema"
 
 
 const initial_plant_values = [];

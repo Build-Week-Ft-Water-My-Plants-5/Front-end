@@ -10,12 +10,22 @@ import * as yup from "yup";
 
 
 const initial_plant_values = [];
+const initial_disabled = true;
+
+const initial_form_values = {
+    nickname:"",
+    species:"",
+    h2oFrequency:"",
+    image:"",
+
+}
 
 
 function App() {
 
-    const [form_values, set_form_values] = useState([]);
+    const [form_values, set_form_values] = useState(initial_form_values);
     const [plants, set_plant_values] = useState(initial_plant_values);
+    const [disabled, set_disabled] = useState(initial_disabled);
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")

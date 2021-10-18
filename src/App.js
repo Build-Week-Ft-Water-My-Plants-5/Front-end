@@ -7,13 +7,7 @@ import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
-
 import Plants_List from "./components/Plants_List";
-
-
-
-
-
 import schema from "./Form_Schema"
 import * yup from "yup";
 
@@ -44,7 +38,6 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
     const [errors, set_errors]=useState(initial_form_errors)
-=======
 }
 
 function App() {

@@ -2,9 +2,15 @@ import React, {useEffect, useState } from "react"
 import './App.css';
 import axios from 'axios';
 import { Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Plant_List from "./components/Plants_List";
-import Plant_Form from "./components/Plant_Form";
+import Login from "./components/Home";
+import Signup from "./components/Sign_Up";
+import Plant from "./components/Plant";
+import PlantForm from "./components/Plant_Form"
+import Home from "./components/Home"
+import PlantList from "./components/Plants_List"
+
+
+const initial_plant_values = [];
 
 const initialFormValues = {
     nickname: '',
@@ -16,7 +22,11 @@ const initialFormValues = {
 
 function App() {
 
-    const [formValues, setFormValues]=useState(initialFormValues)
+    const [form_values, set_form_values] = useState(initialFormValues);
+    const [plants, set_plant_values] = useState(initial_plant_values);
+
+
+
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
@@ -29,7 +39,7 @@ function App() {
     }, [])
 
     const change= (evt) =>{
-        if(evt.target.type === 'checkbox' ? setFormValues({ ...formValues, [evt.target.name]: evt.target.checked }) :  setFormValues({ ...formValues, [evt.target.name]: evt.target.value }));
+        if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
         // validate(evt.target.name, evt.target.value);
       }
 
@@ -52,12 +62,12 @@ function App() {
         </div>
         <div>
             <Route path="plant-list" >
-                <Plant_List />
+                <PlantList />
             </Route>
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form change={change} formValues={formValues}/>
+                <PlantForm change={change} form_values={form_values}/>
             </Route>
         </div>
     </div>

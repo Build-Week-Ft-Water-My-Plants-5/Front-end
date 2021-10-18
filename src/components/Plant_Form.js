@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function Plant_Form(props){
     const{
-        formValues,
+        form_values,
         change,
         errors
     } = props
-    console.log(formValues.nickname)
+    console.log(form_values.nickname)
 
     return(
         <form className='form-container' >
@@ -25,7 +25,7 @@ export default function Plant_Form(props){
                 <h3>User Information</h3>
                 <label>Nickname &nbsp;
                     <input
-                        value={formValues.nickname}
+                        value={form_values.nickname}
                         onChange={change}
                         name='nickname'
                         type='text'
@@ -34,7 +34,7 @@ export default function Plant_Form(props){
                 </label>
                 <label>Species &nbsp;
                     <input
-                        value={formValues.species}
+                        value={form_values.species}
                         onChange={change}
                         name='species'
                         type='text'
@@ -43,7 +43,7 @@ export default function Plant_Form(props){
                 </label>
                 <label>How often do you water this plant? &nbsp;
                     <input
-                        value={formValues.h2oFrequency}
+                        value={form_values.h2oFrequency}
                         onChange={change}
                         name='h2oFrequency'
                         type='text'
@@ -55,7 +55,7 @@ export default function Plant_Form(props){
                         type="image"
                         onChange={change}
                         name='image'
-                        value={formValues.image}
+                        value={form_values.image}
                     />
                 </label>
             </div>

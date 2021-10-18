@@ -5,7 +5,8 @@ import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
 import Plant_List from "./components/Plants_List";
-import schema from "./Form_Schema"
+import schema from "./Form_Schema";
+import * as yup from "yup";
 
 
 const initial_plant_values = [];
@@ -15,9 +16,6 @@ function App() {
 
     const [form_values, set_form_values] = useState([]);
     const [plants, set_plant_values] = useState(initial_plant_values);
-
-
-
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
@@ -30,6 +28,12 @@ function App() {
 
 
     }, [])
+
+    const validate = (name, value) => {
+        yup.reach(schema, name)
+            .validate(value)
+            .then(() => )
+    }
 
     return (
      <>

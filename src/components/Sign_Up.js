@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import React from 'react';
+
+export default function Signup() {
+
+    return (
+        <>
+            <form id='singup-form'>
+=======
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -36,10 +45,33 @@ export default function Signup() {
     return (
         <>
             <form id='singup-form' onSubmit={handleSubmit}>
+>>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
                 <h1>Create an account</h1>
                 <p>Already have an account? Login here!</p>
 
                 <div className="form-inputs" id="signup-inputs">
+<<<<<<< HEAD
+                     <input
+                        value="phonenumber"
+                        name="phone"
+                        type="tel"
+                        placeholder="phone number"
+                    />  
+
+                    <input
+                        value="username"
+                        name="username"
+                        type="text"
+                        placeholder="username"
+                    />
+
+                    <input
+                        value="password"
+                        name="username"
+                        type="password"
+                        placeholder="password"
+                    />
+=======
                     <label htmlFor="username">Username:</label>
                     <input
                         value=""
@@ -66,6 +98,7 @@ export default function Signup() {
                         type="tel"
                         onChange={handleChange}
                     />  
+>>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
                 </div>
 
                 <div className="errors">

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import React from 'react';
+import axios from 'axios';
+=======
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
@@ -33,17 +37,37 @@ export default function Login() {
             setFormValues(initialValues)
         })
     };
+>>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
 
+export default function Login() {
+    
 
+<<<<<<< HEAD
+    return (
+        <>
+            <form id="login-form">
+=======
 
     return (
         <>
             <form id="login-form" onSubmit={handleSubmit}>
+>>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
                 <h1>Login to view your plants.</h1>
                 <p>Don't have a login? Create one!</p>
 
                 <div className='form-inputs' id='login-inputs'>
                     <input
+<<<<<<< HEAD
+                        name="username"
+                        type="text"
+                        placeholder="username"
+                    />
+
+                    <input
+                        name="username"
+                        type="password"
+                        placeholder="password"
+=======
                         value={formValues.username}
                         name="username"
                         type="text"
@@ -65,6 +89,7 @@ export default function Login() {
                         type="tel"
                         placeholder="phone number"
                         onChange={handleChange}
+>>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
                     />
                 </div>
 

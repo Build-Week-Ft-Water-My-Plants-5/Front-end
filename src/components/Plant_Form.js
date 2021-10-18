@@ -8,7 +8,17 @@ export default function Plant_Form(props){
         submit,
         disabled
     } = props
-  
+
+    const onSubmit = evt => {
+        evt.preventDefault();
+        submit();
+    }
+
+    const onChange = evt => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        change(name, value);
+    }
 
     return(
         <form className='form-container' onSubmit={onSubmit} >
@@ -28,7 +38,7 @@ export default function Plant_Form(props){
                 <label>Nickname &nbsp;
                     <input
                         value={form_values.nickname}
-                        onChange={change}
+                        onChange={onChange}
                         name='nickname'
                         type='text'
                         placeholder='Nickname'
@@ -37,7 +47,7 @@ export default function Plant_Form(props){
                 <label>Species &nbsp;
                     <input
                         value={form_values.species}
-                        onChange={change}
+                        onChange={onChange}
                         name='species'
                         type='text'
                         placeholder='Species'
@@ -46,7 +56,7 @@ export default function Plant_Form(props){
                 <label>How often do you water this plant? &nbsp;
                     <input
                         value={form_values.h2oFrequency}
-                        onChange={change}
+                        onChange={onChange}
                         name='h2oFrequency'
                         type='text'
                         placeholder='Water schedule?'
@@ -55,7 +65,7 @@ export default function Plant_Form(props){
                 <label>Image: &nbsp;
                     <input
                         type="image"
-                        onChange={change}
+                        onChange={onChange}
                         name='image'
                         value={form_values.image}
                         alt="Plant image"

@@ -8,9 +8,8 @@ import Plant from "./components/Plant";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
 import Plants_List from "./components/Plants_List";
-import schema from "./Form_Schema"
-import * yup from "yup";
-
+import schema from "./Form_Schema";
+import * as yup from "yup";
 
 const initial_plant_values = [];
 const initial_disabled = true;
@@ -38,19 +37,15 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
     const [errors, set_errors]=useState(initial_form_errors)
-}
 
-function App() {
 
-    const [form_values, set_form_values] = useState(initial_form_values);
-    const [plants, set_plant_values] = useState(initial_plant_values);
-    const [disabled, set_disabled] = useState(initial_disabled);
 
-    console.log(plants)
+
+
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
             })
             .catch(err => {
                 console.error(err)
@@ -65,7 +60,7 @@ function App() {
             .catch(err => {
                 console.error(err)
             })
-            .finally(() =>{
+            .finally( () =>{
                 set_form_values(initial_form_values)
             }, [form_values])
 
@@ -81,7 +76,9 @@ function App() {
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
-            .then(() => )
+
+            .then(() => set_errors({...errors, [name]:""}) )
+            .catch(err => set_errors({errors, [name]: err.errors[0]}))
     }
 
     const form_submit = () => {
@@ -94,6 +91,10 @@ function App() {
         }
         post_new_plant(new_plant);
     }
+
+    useEffect(() => {
+        schema.isValid(form_values).then(valid => set_disabled(!valid))
+    },[form_values])
 
 
     return (

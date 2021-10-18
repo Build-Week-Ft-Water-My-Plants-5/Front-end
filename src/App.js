@@ -78,11 +78,11 @@ function App() {
     }
     
 
-    // const validate = (name, value) => {
-    //     yup.reach(schema, name)
-    //         .validate(value)
-    //         .then(() => )
-    // }
+    const validate = (name, value) => {
+        yup.reach(schema, name)
+            .validate(value)
+            .then(() => )
+    }
 
     const form_submit = () => {
         const new_plant = {
@@ -116,7 +116,11 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form change={change} form_values={form_values} submit={form_submit}/>
+                <Plant_Form 
+                change={change} 
+                form_values={form_values} 
+                submit={form_submit} 
+                disabled={disabled}/>
             </Route>
         </div>
     </div>

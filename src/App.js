@@ -22,13 +22,7 @@ const initial_form_values = {
     image:""
 
 }
-const fake_plant = {
-    nickname: "Vern",
-    species : "some shit",
-    h2oFrequency: "alot",
-    image:"stuff"
 
-}
 
 
 
@@ -36,8 +30,8 @@ const fake_plant = {
 
 function App() {
 
-    const [form_values, set_form_values] = useState(fake_plant);
-    const [plants, set_plant_values] = useState(fake_plant);
+    const [form_values, set_form_values] = useState(initial_form_values);
+    const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
 
     console.log(plants)

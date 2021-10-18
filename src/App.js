@@ -7,7 +7,7 @@ import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
-import Plant_List from "./components/Plants_List";
+import Plants_List from "./components/Plants_List";
 import schema from "./Form_Schema"
 import * yup from "yup";
 
@@ -101,7 +101,7 @@ function App() {
     </div>
     <div>
         <Route path="/Plants_List" >
-            <Plant_List plants={plants}/>
+            <Plants_List plants={plants}/>
         </Route>
     </div>
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react"
 import './App.css';
-import axios from 'axios';
+import axios, {Axios} from 'axios';
 import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
@@ -19,27 +19,28 @@ const initial_form_values = {
     nickname:"",
     species:"",
     h2oFrequency:"",
-    image:"",
+    image:""
+
+}
+const fake_plant = {
+    nickname: "Vern",
+    species : "some shit",
+    h2oFrequency: "alot",
+    image:"stuff"
 
 }
 
 
-const initial_plant_values = [];
 
-const initialFormValues = {
-    nickname: '',
-    species: '',
-    h2oFrequency: '',
-    image:'',
-    user_id:''
-  }
+
 
 function App() {
 
-    const [form_values, set_form_values] = useState(initial_form_values);
-    const [plants, set_plant_values] = useState(initial_plant_values);
+    const [form_values, set_form_values] = useState(fake_plant);
+    const [plants, set_plant_values] = useState(fake_plant);
     const [disabled, set_disabled] = useState(initial_disabled);
 
+    console.log(plants)
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
             .then(res => {
@@ -50,17 +51,44 @@ function App() {
             })
     }, [])
 
+    const post_new_plant = new_plant => {
+        axios.post("https://watermyplantsbwweb46.herokuapp.com/api", new_plant)
+            .then(res=> {
+                set_plant_values([res.data, ...plants])
+            })
+            .catch(err => {
+                console.error(err)
+            })
+            .finally(() =>{
+                set_form_values(initial_form_values)
+            }, [form_values])
+
+    }
+
+
     const change= (evt) =>{
         if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
         // validate(evt.target.name, evt.target.value);
       }
 
 
-    const validate = (name, value) => {
-        yup.reach(schema, name)
-            .validate(value)
-            .then(() => )
+    // const validate = (name, value) => {
+    //     yup.reach(schema, name)
+    //         .validate(value)
+    //         .then(() => )
+    // }
+
+    const form_submit = () => {
+        const new_plant = {
+            nickname: form_values.nickname.trim(),
+            species: form_values.species.trim(),
+            h2oFrequency: form_values.h2oFrequency.trim(),
+            image: form_values.image.trim()
+
+        }
+        post_new_plant(new_plant);
     }
+
 
     return (
      <>
@@ -76,6 +104,7 @@ function App() {
         <div className="home-component">
             <Route path="/">
                 <Home />
+
             </Route>
         </div>
         <div>

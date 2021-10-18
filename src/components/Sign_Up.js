@@ -56,7 +56,7 @@ export default function Signup() {
                         name="phone"
                         type="tel"
                         placeholder="phone number"
-                    />  
+                    />
 
                     <input
                         value="username"
@@ -83,7 +83,7 @@ export default function Signup() {
 
                     <label htmlFor="password">Password:</label>
                     <input
-                        value="" 
+                        value=""
                         id="password"
                         name="password"
                         type="password"
@@ -97,7 +97,7 @@ export default function Signup() {
                         name="phonenumber"
                         type="tel"
                         onChange={handleChange}
-                    />  
+                    />
 >>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
                 </div>
 

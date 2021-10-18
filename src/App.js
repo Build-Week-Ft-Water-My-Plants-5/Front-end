@@ -14,8 +14,8 @@ import Plants_List from "./components/Plants_List";
 
 
 
-import schema from "./Form_Schema"
-import * yup from "yup";
+import schema from "./Form_Schema";
+import * as yup from "yup";
 
 
 const initial_plant_values = [];

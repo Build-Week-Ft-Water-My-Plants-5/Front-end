@@ -4,9 +4,19 @@ import axios from 'axios';
 import { Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Plant_List from "./components/Plants_List";
+import Plant from "./components/Plant";
+
+
+const initial_plant_values = [];
 
 
 function App() {
+
+    const [form_values, set_form_values] = useState([]);
+    const [plants, set_plant_values] = useState(initial_plant_values);
+
+
+
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
@@ -51,7 +61,7 @@ function App() {
     </div>
     <div>
         <Route path="plant-list" >
-            <Plant_List />
+            <Plant_List plants={plants}/>
         </Route>
     </div>
 

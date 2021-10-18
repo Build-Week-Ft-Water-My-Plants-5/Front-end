@@ -4,12 +4,13 @@ export default function Plant_Form(props){
     const{
         form_values,
         change,
-        errors
+        errors,
+        submit
     } = props
-    console.log(form_values.nickname)
+  
 
     return(
-        <form className='form-container' >
+        <form className='form-container' onSubmit={submit} >
             <div className='form-inputs submit'>
                 <h2>Add New Plant</h2>
                 <button>submit</button>

@@ -7,7 +7,12 @@ import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
-import Plant_List from "./components/Plants_List";
+
+import Plants_List from "./components/Plants_List";
+
+
+
+
 
 import schema from "./Form_Schema"
 import * yup from "yup";
@@ -79,17 +84,6 @@ function App() {
         // validate(evt.target.name, evt.target.value);
     }
     
-    const submit = evt => {
-        const newPlant = {
-            nickname: form_values.nickname.trim(),
-            species: form_values.species.trim(),
-            h2oFrequency: form_values.h2oFrequency.trim(),
-            image: form_values.image.trim(),
-           
-        }
-        // postPlant(newPlant)
-        console.log(newPlant)
-    }
 
     // const validate = (name, value) => {
     //     yup.reach(schema, name)
@@ -129,7 +123,7 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form change={change} form_values={form_values} submit={submit}/>
+                <Plant_Form change={change} form_values={form_values} submit={form_submit}/>
             </Route>
         </div>
     </div>
@@ -140,7 +134,7 @@ function App() {
     </div>
     <div>
         <Route path="/Plants_List" >
-            <Plant_List plants={plants}/>
+            <Plants_List plants={plants}/>
         </Route>
     </div>
 

@@ -57,6 +57,7 @@ export default function Plant_Form(props){
                         onChange={change}
                         name='image'
                         value={form_values.image}
+                        alt="Plant image"
                     />
                 </label>
             </div>

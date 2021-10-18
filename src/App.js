@@ -7,7 +7,20 @@ import Signup from "./components/Sign_Up";
 import Plant from "./components/Plant";
 import PlantForm from "./components/Plant_Form"
 import Home from "./components/Home"
-import PlantList from "./components/Plants_List"
+import Plant_List from "./components/Plants_List";
+import schema from "./Form_Schema"
+
+
+const initial_plant_values = [];
+const initial_disabled = true;
+
+const initial_form_values = {
+    nickname:"",
+    species:"",
+    h2oFrequency:"",
+    image:"",
+
+}
 
 
 const initial_plant_values = [];
@@ -22,8 +35,9 @@ const initialFormValues = {
 
 function App() {
 
-    const [form_values, set_form_values] = useState(initialFormValues);
+    const [form_values, set_form_values] = useState(initial_form_values);
     const [plants, set_plant_values] = useState(initial_plant_values);
+    const [disabled, set_disabled] = useState(initial_disabled);
 
 
 
@@ -61,16 +75,27 @@ function App() {
             </Route>
         </div>
         <div>
-            <Route path="plant-list" >
-                <PlantList />
-            </Route>
-        </div>
-        <div>
             <Route path="/Plant_Form" >
                 <PlantForm change={change} form_values={form_values}/>
             </Route>
         </div>
     </div>
+    <div className="home-component">
+        <Route exact path="/">
+            <Login />
+        </Route>
+    </div>
+    <div className="home-component">
+        <Route path="/signup">
+            <Signup />
+        </Route>
+    </div>
+    <div>
+        <Route path="/plant-list" >
+            <Plant_List plants={plants}/>
+        </Route>
+    </div>
+
      </>
 
   )

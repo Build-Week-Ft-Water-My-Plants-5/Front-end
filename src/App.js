@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
-import Plant_Form from "./components/Plant_Form"
+import PlantForm from "./components/PlantForm"
 import Home from "./components/Home"
-import Plants_List from "./components/Plants_List";
+import PlantsList from "./components/PlantsList";
 import schema from "./Form_Schema";
 import * as yup from "yup";
 
@@ -17,8 +17,7 @@ const initial_form_values = {
     nickname: "",
     species: "",
     h2oFrequency: "",
-    image:"",
-
+    image:""
   }
 
 const initial_form_errors={
@@ -26,7 +25,6 @@ const initial_form_errors={
     species:"",
     h2oFrequency:"",
     image:""
-
 }
 
 
@@ -36,10 +34,6 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
     const [errors, set_errors]=useState(initial_form_errors);
-
-
-
-
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
@@ -65,17 +59,15 @@ function App() {
 
     }
 
-
-    const change= (evt) =>{
-        if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
+    const change= (name, value) =>{
+        set_form_values({ ...form_values, [name]: value });
         // validate(evt.target.name, evt.target.value);
     }
-    
+
 
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
-
             .then(() => set_errors({...errors, [name]:""}) )
             .catch(err => set_errors({errors, [name]: err.errors[0]}))
     }
@@ -86,7 +78,6 @@ function App() {
             species: form_values.species.trim(),
             h2oFrequency: form_values.h2oFrequency.trim(),
             image: form_values.image.trim()
-
         }
         post_new_plant(new_plant);
     }
@@ -97,7 +88,6 @@ function App() {
 
 
     return (
-     <>
     <div className="App">
         <header className="header">
             <nav>
@@ -108,36 +98,31 @@ function App() {
             </nav>
             <h1>Water My Plants</h1>
         </header>
-
         <div className="home-component">
             <Route path="/">
                 <Home />
-
             </Route>
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form 
+                <PlantForm 
                 change={change} 
                 form_values={form_values} 
                 submit={form_submit} 
                 disabled={disabled}/>
             </Route>
         </div>
+        <div className="home-component">
+            <Route path="/signup">
+                <Signup />
+            </Route>
+        </div>
+        <div>
+            <Route path="/Plants_List" >
+                <PlantsList plants={plants}/>
+            </Route>
+        </div>
     </div>
-    <div className="home-component">
-        <Route path="/signup">
-            <Signup />
-        </Route>
-    </div>
-    <div>
-        <Route path="/Plants_List" >
-            <Plants_List plants={plants}/>
-        </Route>
-    </div>
-
-     </>
-
   )
 }
 

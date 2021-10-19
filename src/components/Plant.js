@@ -39,7 +39,7 @@ export default function Plant(props) {
     }
 
 
-
+console.log(plant)
     return (
         <>
             <div className="plant-card">

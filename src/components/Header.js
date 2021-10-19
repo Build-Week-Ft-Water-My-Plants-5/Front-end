@@ -5,6 +5,10 @@ import "./header.css";
 
 
 export default function Header() {
+    const logout = () => {
+        localStorage.removeItem("token");
+        window.location.href = "login"
+    }
 
     return(
         <header id="header">
@@ -16,6 +20,8 @@ export default function Header() {
                 <Link className="header-link" to="/PlantsList">My Plants</Link>
                 <Link className="header-link" to="/signup">Signup</Link>
                 <Link className="header-link" to="profile">Profile</Link>
+                <a href="/" onClick={logout}>Log Out</a>
+
             </nav>
         </header>
     )

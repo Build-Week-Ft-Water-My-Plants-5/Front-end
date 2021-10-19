@@ -7,7 +7,8 @@ export default function Plant_Form(props){
         form_values,
         change,
         errors,
-        submit
+        submit,
+        disabled
     } = props
 
     const onSubmit = evt => {
@@ -25,7 +26,7 @@ export default function Plant_Form(props){
         <form className='form-container' onSubmit={onSubmit} >
             <div className='form-inputs submit'>
                 <h2>Add New Plant</h2>
-                <button>submit</button>
+                <button disabled={disabled}>submit</button>
                 <div className='errors'>
                     <div>{errors.name}</div>
                     <div>{errors.species}</div>
@@ -75,6 +76,7 @@ export default function Plant_Form(props){
                         onChange={onChange}
                         name='image'
                         value={form_values.image}
+                        alt="Plant image"
                     />
                 </label>
                 <nav className="save-plant">

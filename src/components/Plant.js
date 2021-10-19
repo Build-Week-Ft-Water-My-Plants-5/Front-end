@@ -5,9 +5,8 @@ export default function Plant(props) {
     const {plant, set_plant_values} = props;
 
 
-
     const delete_plant = (existing_pant) => {
-        axios.delete("https://watermyplantsweb46.herokuapp.com/plant/:id" ,existing_pant)
+        axios.delete("https://watermyplantsweb46.herokuapp.com/plant/:id", existing_pant)
             .then(res => {
                 console.log(res)
             })
@@ -16,7 +15,7 @@ export default function Plant(props) {
             })
     }
     const edit_plant = (plant) => {
-        axios.put("https://watermyplantsweb46.herokuapp.com", )
+        axios.put("https://watermyplantsweb46.herokuapp.com",)
             .then(res => {
                 set_plant_values([res.data, ...plant])
             })
@@ -26,10 +25,6 @@ export default function Plant(props) {
 
     }
 
-    const onChange = evt => {
-
-
-    }
 
     const form_submit = evt => {
         const update_plant = {
@@ -38,6 +33,7 @@ export default function Plant(props) {
             h2oFrequency: evt.h2oFrequency,
             image: evt.image.trim()
         }
+
         edit_plant(update_plant)
     }
 

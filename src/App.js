@@ -4,8 +4,9 @@ import axios from 'axios';
 import { Route, Link, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Sign_Up";
-import PlantForm from "./components/PlantForm"
-import Home from "./components/Home"
+import PlantForm from "./components/PlantForm";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
 import schema from "./Form_Schema";
 import * as yup from "yup";
@@ -29,7 +30,6 @@ function App() {
 
     return (
     <div className="App">
-
             <div>
                 <Header />
             </div>
@@ -49,9 +49,7 @@ function App() {
                 <Route path="/">
                     <Home />
                 </Route>
-            </Switch>
-        
-        
+            </Switch>       
 </div>
     
 

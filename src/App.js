@@ -64,6 +64,7 @@ function App() {
         // validate(evt.target.name, evt.target.value);
     }
 
+
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)

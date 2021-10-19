@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../Form_Schema";
-
+import "./plantForm.css"
 
 const initial_disabled = true;
 
@@ -95,7 +95,7 @@ export default function PlantForm(props){
                 </div>
             </div>
 
-            <div className='form-group inputs'>
+            <div className='form-group-inputs'>
                 <h3>User Information</h3>
                 <label>Nickname &nbsp;
                     <input
@@ -117,6 +117,7 @@ export default function PlantForm(props){
                 </label>
                 <label>How often do you water this plant? &nbsp;
                     <select name="h2oFrequency" onChange={onChange}>
+                        <option value="">--Select One--</option>
                         <option value="none">None</option>
                         <option value="Twice a day">Twice a day</option>
                         <option value="Once a day">Once a day</option>
@@ -133,8 +134,6 @@ export default function PlantForm(props){
                     />
                 </label>
                 <button disabled={disabled} className="save-plant">submit</button>
-
-
             </div>
         </form>
     )

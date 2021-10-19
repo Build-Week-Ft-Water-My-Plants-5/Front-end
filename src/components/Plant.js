@@ -37,8 +37,6 @@ export default function Plant(props) {
         edit_plant(update_plant)
     }
 
-
-
     return (
         <>
             <div className="plant-card">

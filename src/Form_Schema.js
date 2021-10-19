@@ -11,7 +11,7 @@ const form_schema = yup.object().shape({
     species: yup
         .string()
         .trim()
-        .min(2, "Specie names must be at least 2 characters")
+        .min(2, "Species name must be at least 2 characters")
         .required("Species is required."),
     h2oFrequency: yup
         .string()

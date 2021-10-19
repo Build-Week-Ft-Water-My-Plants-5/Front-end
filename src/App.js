@@ -11,6 +11,7 @@ import PlantsList from "./components/PlantsList";
 import schema from "./Form_Schema";
 import * as yup from "yup";
 import Header from "./components/Header"
+
 const initial_plant_values = [];
 
 function App() {

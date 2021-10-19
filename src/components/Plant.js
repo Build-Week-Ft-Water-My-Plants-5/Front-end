@@ -1,8 +1,33 @@
 import React from "react";
+import axios from "axios";
 
 export default function Plant(props) {
     const {plant} = props;
-    console.log(plant)
+
+    const delete_plant = (existing_pant) => {
+        axios.delete("https://watermyplantsweb46.herokuapp.com/plant/:id" ,existing_pant)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+    const edit_plant = (plant) => {
+        axios.put("https://watermyplantsweb46.herokuapp.com", )
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.error(err);
+            })
+
+    }
+
+
+
+
+
     return (
         <>
             <div className="plant-card">

@@ -1,19 +1,81 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
+import axios from "axios";
+import * as yup from "yup";
+import schema from "../Form_Schema";
 
+
+const initial_disabled = true;
+
+const initial_form_values = {
+    nickname: "",
+    species: "",
+    h2oFrequency: "",
+    image:""
+}
+
+const initial_form_errors={
+    nickname:"",
+    species:"",
+    h2oFrequency:"",
+    image:""
+}
 
 export default function PlantForm(props){
-    const{
-        form_values,
-        change,
-        errors,
-        submit,
-        disabled
-    } = props
+    const { plants, set_plant_values} = props
+
+    const [form_values, set_form_values] = useState(initial_form_values);
+
+    const [disabled, set_disabled] = useState(initial_disabled);
+    const [errors, set_errors]=useState(initial_form_errors);
+
+
+
+    const post_new_plant = new_plant => {
+        axios.post("https://watermyplantsbwweb46.herokuapp.com/api", new_plant)
+            .then(res=> {
+                set_plant_values([res.data, ...plants])
+            })
+            .catch(err => {
+                console.error(err)
+            })
+            .finally( () =>{
+                set_form_values(initial_form_values)
+            })
+
+    }
+
+    const change= (name, value) =>{
+        set_form_values({ ...form_values, [name]: value });
+        // validate(evt.target.name, evt.target.value);
+    }
+
+
+    const validate = (name, value) => {
+        yup.reach(schema, name)
+            .validate(value)
+            .then(() => set_errors({...errors, [name]:""}) )
+            .catch(err => set_errors({errors, [name]: err.errors[0]}))
+    }
+
+    const form_submit = () => {
+        const new_plant = {
+            nickname: form_values.nickname.trim(),
+            species: form_values.species.trim(),
+            h2oFrequency: form_values.h2oFrequency.trim(),
+            image: form_values.image.trim()
+        }
+        post_new_plant(new_plant);
+    }
+
+    useEffect(() => {
+        schema.isValid(form_values).then(valid => set_disabled(!valid))
+    },[form_values])
+
 
     const onSubmit = evt => {
         evt.preventDefault();
-        submit();
+        form_submit();
     }
 
     const onChange = evt => {
@@ -56,13 +118,6 @@ export default function PlantForm(props){
                     />
                 </label>
                 <label>How often do you water this plant? &nbsp;
-                    {/*<input*/}
-                    {/*    value={form_values.h2oFrequency}*/}
-                    {/*    onChange={onChange}*/}
-                    {/*    name='h2oFrequency'*/}
-                    {/*    type='text'*/}
-                    {/*    placeholder='Water schedule?'*/}
-                    {/*/>*/}
                     <select name="h2oFrequency" onChange={onChange}>
                         <option value="none">None</option>
                         <option value="Twice a day">Twice a day</option>
@@ -73,20 +128,15 @@ export default function PlantForm(props){
                 </label>
                 <label>Image: &nbsp;
                     <input
-                        type="image"
+                        type="text"
                         onChange={onChange}
                         name='image'
                         value={form_values.image}
-                        alt="Plant image"
+
                     />
                 </label>
                 <button disabled={disabled} className="save-plant">submit</button>
-                {/* <nav className="save-plant">
-                    <button onChange={onChange}>Save Plant</button>
-                </nav>
-                <nav className="delete-plant">
-                    <button onChange={onChange}>Delete Plant</button>
-                </nav> */}
+
             </div>
         </form>
     )

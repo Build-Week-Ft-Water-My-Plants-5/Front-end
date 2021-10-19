@@ -3,7 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../Form_Schema";
-import "./PlantForm.css"
+import "./plantForm.css"
+import axiosWithAuth from "./axiosWithAuth";
 
 
 const initial_disabled = true;
@@ -29,7 +30,7 @@ export default function PlantForm(props){
 
 
     const post_new_plant = new_plant => {
-        axios.post("https://watermyplantsbwweb46.herokuapp.com/api/plants", new_plant)
+        axiosWithAuth().post("https://watermyplantsbwweb46.herokuapp.com/api/plants", new_plant)
             .then(res=> {
                 console.log(res)
                 set_plant_values([res.data, ...plants])

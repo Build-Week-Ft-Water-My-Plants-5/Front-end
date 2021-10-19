@@ -132,10 +132,10 @@ export default function PlantForm(props){
                         onChange={onChange}
                         name='image'
                         value={form_values.image}
-
                     />
                 </label>
                 <button disabled={disabled} className="save-plant">submit</button>
+
 
             </div>
         </form>

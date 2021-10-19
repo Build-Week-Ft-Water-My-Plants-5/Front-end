@@ -1,7 +1,9 @@
 import React, {useEffect, useState } from "react"
 import './App.css';
 import axios from 'axios';
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+
+import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import Signup from "./components/Sign_Up";
 import PlantForm from "./components/PlantForm";
@@ -26,6 +28,7 @@ function App() {
             })
     }, [])
 
+
     return (
     <div className="App">
             <div>
@@ -36,18 +39,16 @@ function App() {
                 <Route path="/profile">
                     <UserProfile/>
                 </Route>
-
-                <Route path="/PlantForm">
+                <PrivateRoute path="/PlantForm">
                     <PlantForm plants = {plants} set_plant_values={set_plant_values}/>
-                </Route>
-                <Route path="/PlantsList">
+                </PrivateRoute>
+                <PrivateRoute path="/PlantsList">
                     <PlantsList set_plant_values={set_plant_values} plants={plants}/>
-                </Route>
+                </PrivateRoute>
                 <Route path="/signup">
                     <Signup />
                 </Route>
-                <Route path="/login" component={Login}/>
-                    
+                <Route path="/login" component={Login}/>                    
                 <Route path="/">
                     <Home />
                 </Route>

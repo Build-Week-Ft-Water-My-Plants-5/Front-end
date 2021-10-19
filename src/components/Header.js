@@ -20,7 +20,7 @@ export default function Header() {
                 <Link className="header-link" to="/PlantsList">My Plants</Link>
                 <Link className="header-link" to="/signup">Signup</Link>
                 <Link className="header-link" to="profile">Profile</Link>
-                <a href="/" onClick={logout}>Log Out</a>
+                <a className="header-link" href="/" onClick={logout}>Log Out</a>
             </nav>
         </header>
     )

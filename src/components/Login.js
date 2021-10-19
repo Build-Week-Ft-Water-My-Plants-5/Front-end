@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import  axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import "./login.css"
 
 const initialValues = {
     username: "",
-    password:"",
-    phonenumber: ""
+    password:""
 };
 
 
@@ -23,17 +23,16 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://watermyplantsweb46.herokuapp.com/auth/login', formValues)
+        axios.post('https://watermyplantsweb46.herokuapp.com/api/auth/login', formValues)
         .then((res) => {
-            window.localStorage.setItem('token', res.data.payload);
+            window.localStorage.setItem('token', res.data.token);
             push('/Plant_List');
-            console.log(res.data.payload);
         })
         .catch(err => {
-            console.log(err);
+            console.log(err.message);
         })
         .finally(() => {
-            setFormValues(initialValues)
+            setFormValues(formValues)
         })
     };
 
@@ -41,7 +40,7 @@ export default function Login() {
         <>
             <form id="login-form" onSubmit={handleSubmit}>
                 <h1>Login to view your plants.</h1>
-                <p>Don't have a login? Create one!</p>
+                <p>Don't have a login? <Link to="/signup">Create one!</Link></p>
 
                 <div className='form-inputs' id='login-inputs'>
                     <input
@@ -57,14 +56,6 @@ export default function Login() {
                         name="password"
                         type="password"
                         placeholder="password"
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        value={formValues.phonenumber}
-                        name="phonenumber"
-                        type="tel"
-                        placeholder="phone number"
                         onChange={handleChange}
                     />
                 </div>

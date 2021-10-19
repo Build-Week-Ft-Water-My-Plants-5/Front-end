@@ -73,7 +73,7 @@ export default function PlantForm(props){
                 </label>
                 <label>Image: &nbsp;
                     <input
-                        type="image"
+                        type="text"
                         onChange={onChange}
                         name='image'
                         value={form_values.image}

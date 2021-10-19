@@ -36,9 +36,9 @@ function App() {
     const [errors, set_errors]=useState(initial_form_errors);
 
     useEffect(() => {
-        axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
+        axios.get("https://watermyplantsweb46.herokuapp.com/api")
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
             })
             .catch(err => {
                 console.error(err)
@@ -46,7 +46,7 @@ function App() {
     }, [])
 
     const post_new_plant = new_plant => {
-        axios.post("https://watermyplantsbwweb46.herokuapp.com/api", new_plant)
+        axios.post("https://watermyplantsweb46.herokuapp.com/api", new_plant)
             .then(res=> {
                 set_plant_values([res.data, ...plants])
             })

@@ -12,4 +12,10 @@
     flex-direction:column;
     width:70%;
     text-align:center;
+
+}
+button {
+    background-color: #F0FFFF;
+    border: none;
+    color: lightseagreen;
 }

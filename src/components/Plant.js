@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 export default function Plant(props) {
-    const {plant} = props;
+    const {plant, set_plant_values} = props;
 
 
 
@@ -18,7 +18,7 @@ export default function Plant(props) {
     const edit_plant = (plant) => {
         axios.put("https://watermyplantsweb46.herokuapp.com", )
             .then(res => {
-                console.log(res)
+                set_plant_values([res.data, ...plant])
             })
             .catch(err => {
                 console.error(err);
@@ -26,7 +26,20 @@ export default function Plant(props) {
 
     }
 
+    const onChange = evt => {
 
+
+    }
+
+    const form_submit = evt => {
+        const update_plant = {
+            nickname: evt.nickname.trim(),
+            species: evt.species.trim(),
+            h2oFrequency: evt.h2oFrequency,
+            image: evt.image.trim()
+        }
+        edit_plant(update_plant)
+    }
 
 
 

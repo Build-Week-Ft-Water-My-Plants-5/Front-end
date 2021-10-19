@@ -46,7 +46,7 @@ export default function PlantForm(props){
 
     const change= (name, value) =>{
         set_form_values({ ...form_values, [name]: value });
-        // validate(evt.target.name, evt.target.value);
+        validate(evt.target.name, evt.target.value);
     }
 
 

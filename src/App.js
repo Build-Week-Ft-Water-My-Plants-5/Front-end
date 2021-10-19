@@ -8,8 +8,7 @@ import PlantForm from "./components/PlantForm";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
-import schema from "./Form_Schema";
-import * as yup from "yup";
+
 import Header from "./components/Header"
 
 const initial_plant_values = [];
@@ -18,16 +17,14 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
 
     useEffect(() => {
-        axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
+        axios.get("https://watermyplantsweb46.herokuapp.com/api")
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
             })
             .catch(err => {
                 console.error(err)
             })
     }, [])
-
-
 
     return (
     <div className="App">
@@ -40,7 +37,7 @@ function App() {
                     <PlantForm plants = {plants} set_plant_values={set_plant_values}/>
                 </Route>
                 <Route path="/PlantsList">
-                    <PlantsList plants={plants}/>  
+                    <PlantsList set_plant_values={set_plant_values} plants={plants}/>
                 </Route>
                 <Route path="/signup">
                     <Signup />

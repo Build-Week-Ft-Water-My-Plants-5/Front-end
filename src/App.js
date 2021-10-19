@@ -6,11 +6,9 @@ import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
 import Plant_Form from "./components/Plant_Form"
 import Home from "./components/Home"
-import Plant_List from "./components/Plants_List";
-
+import Plants_List from "./components/Plants_List";
 import schema from "./Form_Schema";
 import * as yup from "yup";
-
 
 const initial_plant_values = [];
 const initial_disabled = true;
@@ -38,6 +36,9 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
     const [errors, set_errors]=useState(initial_form_errors);
+
+
+
 
 
     useEffect(() => {
@@ -70,21 +71,11 @@ function App() {
         // validate(evt.target.name, evt.target.value);
     }
     
-    const submit = evt => {
-        const newPlant = {
-            nickname: form_values.nickname.trim(),
-            species: form_values.species.trim(),
-            h2oFrequency: form_values.h2oFrequency.trim(),
-            image: form_values.image.trim(),
-           
-        }
-        // postPlant(newPlant)
-        console.log(newPlant)
-    }
 
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
+
             .then(() => set_errors({...errors, [name]:""}) )
             .catch(err => set_errors({errors, [name]: err.errors[0]}))
     }
@@ -126,7 +117,11 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form change={change} form_values={form_values} submit={submit}/>
+                <Plant_Form 
+                change={change} 
+                form_values={form_values} 
+                submit={form_submit} 
+                disabled={disabled}/>
             </Route>
         </div>
     </div>
@@ -137,7 +132,7 @@ function App() {
     </div>
     <div>
         <Route path="/Plants_List" >
-            <Plant_List plants={plants}/>
+            <Plants_List plants={plants}/>
         </Route>
     </div>
 

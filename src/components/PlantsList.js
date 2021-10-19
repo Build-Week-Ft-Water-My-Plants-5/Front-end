@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Plant from "./Plant";
 
 
 export default function PlantsList(props) {
-    const {plants} = props;
+    const {plants, set_plant_values} = props;
 
     return (
         <div>
@@ -12,7 +11,7 @@ export default function PlantsList(props) {
                 plants.map(plant => {
                     console.log(plant)
                     return (
-                        <Plant plant={plant} key={plant}/>
+                        <Plant plant={plant} key={plant} set_plant_values={set_plant_values}/>
                     )
                 })
             }

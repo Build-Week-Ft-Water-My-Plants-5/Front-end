@@ -26,12 +26,13 @@ export default function PlantForm(props){
         <form className='form-container' onSubmit={onSubmit} >
             <div className='form-inputs submit'>
                 <h2>Add New Plant</h2>
-                <div className='errors'>
-                    {/* <div>{errors.name}</div>
+                <button disabled={disabled}>submit</button>
+                {/* <div className='errors'>
+                    <div>{errors.name}</div>
                     <div>{errors.species}</div>
                     <div>{errors.h2oFrequency}</div>
-                    <div>{errors.image}</div> */}
-                </div>
+                    <div>{errors.image}</div>
+                </div> */}
             </div>
 
             <div className='form-group inputs'>
@@ -90,51 +91,4 @@ export default function PlantForm(props){
         </form>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

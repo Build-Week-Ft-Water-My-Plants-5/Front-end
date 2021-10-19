@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from "react"
 import './App.css';
 import axios from 'axios';
-import { Route, Link } from "react-router-dom";
-import Login from "./components/Home";
+import { Route, Link, Switch } from "react-router-dom";
+import Login from "./components/Login";
 import Signup from "./components/Sign_Up";
 import PlantForm from "./components/PlantForm"
 import Home from "./components/Home"
@@ -92,38 +92,41 @@ function App() {
         <header className="header">
             <nav>
                 <Link className="header-link" to="/">Home</Link>
-                <Link className="header-link" to="/Plant_Form">Add New Plant</Link>
-                <Link className="header-link" to="/Plants_List">My Plants</Link>
+                <Link className="header-link" to="login">Login</Link>
+                <Link className="header-link" to="/PlantForm">Add New Plant</Link>
+                <Link className="header-link" to="/PlantsList">My Plants</Link>
                 <Link className="header-link" to="/signup">Signup</Link>
             </nav>
             <h1>Water My Plants</h1>
         </header>
-        <div className="home-component">
-            <Route path="/">
-                <Home />
-            </Route>
-        </div>
-        <div>
-            <Route path="/Plant_Form" >
-                <PlantForm 
-                change={change} 
-                form_values={form_values} 
-                submit={form_submit} 
-                disabled={disabled}/>
-            </Route>
-        </div>
-        <div className="home-component">
-            <Route path="/signup">
-                <Signup />
-            </Route>
-        </div>
-        <div>
-            <Route path="/Plants_List" >
-                <PlantsList plants={plants}/>
-            </Route>
-        </div>
-    </div>
-  )
+
+       
+            <Switch>
+                <Route path="/PlantForm">
+                    <PlantForm 
+                        change={change} 
+                        form_values={form_values} 
+                        submit={form_submit} 
+                        disabled={disabled}/>
+                </Route>
+                <Route path="/PlantsList">
+                    <PlantsList plants={plants}/>  
+                </Route>
+                <Route path="/signup">
+                    <Signup />
+                </Route>
+                <Route path="/login" component={Login}/>
+                    
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        
+        
+</div>
+    
+
+    )
 }
 
 export default App;

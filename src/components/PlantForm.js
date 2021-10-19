@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 
-export default function Plant_Form(props){
+export default function PlantForm(props){
     const{
         form_values,
         change,
@@ -28,10 +28,10 @@ export default function Plant_Form(props){
                 <h2>Add New Plant</h2>
                 <button disabled={disabled}>submit</button>
                 <div className='errors'>
-                    <div>{errors.name}</div>
+                    {/* <div>{errors.name}</div>
                     <div>{errors.species}</div>
                     <div>{errors.h2oFrequency}</div>
-                    <div>{errors.image}</div>
+                    <div>{errors.image}</div> */}
                 </div>
             </div>
 

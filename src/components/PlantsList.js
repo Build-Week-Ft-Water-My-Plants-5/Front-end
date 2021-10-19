@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Plant from "./Plant";
 
 
-export default function Plants_List(props) {
+export default function PlantsList(props) {
     const {plants} = props;
 
     return (

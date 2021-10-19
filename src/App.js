@@ -4,9 +4,9 @@ import axios from 'axios';
 import { Route, Link } from "react-router-dom";
 import Login from "./components/Home";
 import Signup from "./components/Sign_Up";
-import Plant_Form from "./components/Plant_Form"
+import PlantForm from "./components/PlantForm"
 import Home from "./components/Home"
-import Plants_List from "./components/Plants_List";
+import PlantsList from "./components/PlantsList";
 import schema from "./Form_Schema";
 import * as yup from "yup";
 
@@ -17,8 +17,7 @@ const initial_form_values = {
     nickname: "",
     species: "",
     h2oFrequency: "",
-    image:"",
-
+    image:""
   }
 
 const initial_form_errors={
@@ -65,12 +64,10 @@ function App() {
 
     }
 
-
-    const change= (evt) =>{
-        if(evt.target.type === 'checkbox' ? set_form_values({ ...form_values, [evt.target.name]: evt.target.checked }) :  set_form_values({ ...form_values, [evt.target.name]: evt.target.value }));
+    const change= (name, value) =>{
+        set_form_values({ ...form_values, [name]: value });
         // validate(evt.target.name, evt.target.value);
     }
-    
 
     const validate = (name, value) => {
         yup.reach(schema, name)
@@ -117,7 +114,7 @@ function App() {
         </div>
         <div>
             <Route path="/Plant_Form" >
-                <Plant_Form 
+                <PlantForm 
                 change={change} 
                 form_values={form_values} 
                 submit={form_submit} 
@@ -132,7 +129,7 @@ function App() {
     </div>
     <div>
         <Route path="/Plants_List" >
-            <Plants_List plants={plants}/>
+            <PlantsList plants={plants}/>
         </Route>
     </div>
 

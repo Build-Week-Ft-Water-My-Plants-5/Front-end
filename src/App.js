@@ -4,8 +4,9 @@ import axios from 'axios';
 import { Route, Link, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Sign_Up";
-import PlantForm from "./components/PlantForm"
-import Home from "./components/Home"
+import PlantForm from "./components/PlantForm";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
 import schema from "./Form_Schema";
 import * as yup from "yup";
@@ -99,30 +100,26 @@ function App() {
             </nav>
             <h1>Water My Plants</h1>
         </header>
-
-       
-            <Switch>
-                <Route path="/PlantForm">
-                    <PlantForm 
-                        change={change} 
-                        form_values={form_values} 
-                        submit={form_submit} 
-                        disabled={disabled}/>
-                </Route>
-                <Route path="/PlantsList">
-                    <PlantsList plants={plants}/>  
-                </Route>
-                <Route path="/signup">
-                    <Signup />
-                </Route>
-                <Route path="/login" component={Login}/>
-                    
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch>
-        
-        
+         <Switch>
+             <Route path="/PlantForm">
+                 <PlantForm 
+                     change={change} 
+                     form_values={form_values} 
+                     submit={form_submit} 
+                     disabled={disabled}/>
+             </Route>
+             <Route path="/PlantsList">
+                 <PlantsList plants={plants}/>  
+             </Route>
+             <Route path="/signup">
+                 <Signup />
+             </Route>
+             <Route path="/login" component={Login}/>
+             <Route path="/">
+                 <Home />
+             </Route>
+         </Switch>   
+         <Footer/>   
 </div>
     
 

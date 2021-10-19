@@ -6,7 +6,8 @@ export default function Login() {
 
     return (
         <>
-            <h1>This is the App Home</h1>
+            <h1>Welcome to the Watering Hole!</h1>
+            <img src="./flower.jpg" alt="flowering plant"/>
         </>
     )
 }

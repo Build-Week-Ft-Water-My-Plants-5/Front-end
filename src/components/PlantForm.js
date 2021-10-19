@@ -43,18 +43,16 @@ export default function PlantForm(props){
             })
 
     }
-
-    const change= (name, value) =>{
-        set_form_values({ ...form_values, [name]: value });
-        validate(evt.target.name, evt.target.value);
-    }
-
-
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
             .then(() => set_errors({...errors, [name]:""}) )
             .catch(err => set_errors({errors, [name]: err.errors[0]}))
+    }
+
+    const change= (name, value) =>{
+        set_form_values({ ...form_values, [name]: value });
+        // validate(evt.target.name, evt.target.value);
     }
 
     const form_submit = () => {

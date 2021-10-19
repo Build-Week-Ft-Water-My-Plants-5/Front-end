@@ -10,7 +10,9 @@ export default function Plant(props) {
                 <p>{plant.nickname}</p>
                 <p>{plant.species}</p>
                 <p>{plant.h2oFrequency}</p>
-                <img src={`${plant.image}`} alt={`Picture of a ${plant.nickname}.`}/>
+                <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
+                <button>edit</button>
+                <button>delete</button>
             </div>
         </>
     )

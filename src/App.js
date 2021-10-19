@@ -25,7 +25,6 @@ const initial_form_errors={
     species:"",
     h2oFrequency:"",
     image:""
-
 }
 
 
@@ -35,10 +34,6 @@ function App() {
     const [plants, set_plant_values] = useState(initial_plant_values);
     const [disabled, set_disabled] = useState(initial_disabled);
     const [errors, set_errors]=useState(initial_form_errors);
-
-
-
-
 
     useEffect(() => {
         axios.get("https://watermyplantsbwweb46.herokuapp.com/api")
@@ -72,7 +67,6 @@ function App() {
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
-
             .then(() => set_errors({...errors, [name]:""}) )
             .catch(err => set_errors({errors, [name]: err.errors[0]}))
     }
@@ -83,7 +77,6 @@ function App() {
             species: form_values.species.trim(),
             h2oFrequency: form_values.h2oFrequency.trim(),
             image: form_values.image.trim()
-
         }
         post_new_plant(new_plant);
     }
@@ -94,7 +87,6 @@ function App() {
 
 
     return (
-     <>
     <div className="App">
         <header className="header">
             <nav>
@@ -105,11 +97,9 @@ function App() {
             </nav>
             <h1>Water My Plants</h1>
         </header>
-
         <div className="home-component">
             <Route path="/">
                 <Home />
-
             </Route>
         </div>
         <div>
@@ -121,20 +111,17 @@ function App() {
                 disabled={disabled}/>
             </Route>
         </div>
+        <div className="home-component">
+            <Route path="/signup">
+                <Signup />
+            </Route>
+        </div>
+        <div>
+            <Route path="/Plants_List" >
+                <PlantsList plants={plants}/>
+            </Route>
+        </div>
     </div>
-    <div className="home-component">
-        <Route path="/signup">
-            <Signup />
-        </Route>
-    </div>
-    <div>
-        <Route path="/Plants_List" >
-            <PlantsList plants={plants}/>
-        </Route>
-    </div>
-
-     </>
-
   )
 }
 

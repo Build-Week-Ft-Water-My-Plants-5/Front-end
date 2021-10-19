@@ -12,7 +12,7 @@ export default function PlantsList(props) {
                 plants.map(plant => {
                     console.log(plant)
                     return (
-                        <Plant plant={plant}/>
+                        <Plant plant={plant} key={plant}/>
                     )
                 })
             }

@@ -1,7 +1,7 @@
 #footer-container {
     color:lightseagreen;
     background-color:white;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width:100%;
     display:flex;
     flex-direction:column;

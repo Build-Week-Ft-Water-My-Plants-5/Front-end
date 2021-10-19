@@ -43,6 +43,7 @@ export default function PlantForm(props){
             })
 
     }
+
     const validate = (name, value) => {
         yup.reach(schema, name)
             .validate(value)
@@ -52,7 +53,8 @@ export default function PlantForm(props){
 
     const change= (name, value) =>{
         set_form_values({ ...form_values, [name]: value });
-        // validate(evt.target.name, evt.target.value);
+        validate(name, value);
+
     }
 
     const form_submit = () => {
@@ -85,13 +87,12 @@ export default function PlantForm(props){
         <form className='form-container' onSubmit={onSubmit} >
             <div className='form-inputs submit'>
                 <h2>Add New Plant</h2>
-                <button disabled={disabled}>submit</button>
-                {/* <div className='errors'>
-                    <div>{errors.name}</div>
+                <div className='errors'>
+                    <div>{errors.nickname}</div>
                     <div>{errors.species}</div>
                     <div>{errors.h2oFrequency}</div>
                     <div>{errors.image}</div>
-                </div> */}
+                </div>
             </div>
 
             <div className='form-group inputs'>
@@ -130,7 +131,6 @@ export default function PlantForm(props){
                         name='image'
                         value={form_values.image}
                     />
-                    <img src={form_values.img} alt="plant image" />
                 </label>
                 <button disabled={disabled} className="save-plant">submit</button>
 

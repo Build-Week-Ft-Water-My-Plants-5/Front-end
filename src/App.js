@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
 
 import Header from "./components/Header"
+
 const initial_plant_values = [];
 
 function App() {

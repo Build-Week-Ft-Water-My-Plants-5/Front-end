@@ -15,7 +15,7 @@ const form_schema = yup.object().shape({
         .required("Species is required."),
     h2oFrequency: yup
         .string()
-        .oneOf(["Twice a day", "Once a day", "Every other day", "Twice a week"],
+        .oneOf(["none", "Twice a day", "Once a day", "Every other day", "Twice a week"],
                 "Please choose watering schedule: ")
         .required("Watering schedule is required."),
     image:yup

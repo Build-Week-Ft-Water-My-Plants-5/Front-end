@@ -55,7 +55,7 @@ function App() {
             })
             .finally( () =>{
                 set_form_values(initial_form_values)
-            }, )
+            })
 
     }
 

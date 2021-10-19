@@ -63,6 +63,7 @@ export default function PlantForm(props){
                     {/*    placeholder='Water schedule?'*/}
                     {/*/>*/}
                     <select name="h2oFrequency" onChange={onChange}>
+                        <option value="none">None</option>
                         <option value="Twice a day">Twice a day</option>
                         <option value="Once a day">Once a day</option>
                         <option value="Every other day">Every other day</option>

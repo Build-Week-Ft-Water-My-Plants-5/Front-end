@@ -73,20 +73,13 @@ export default function PlantForm(props){
                 </label>
                 <label>Image: &nbsp;
                     <input
-                        type="image"
+                        type="text"
                         onChange={onChange}
                         name='image'
                         value={form_values.image}
-                        alt="Plant image"
                     />
                 </label>
                 <button disabled={disabled} className="save-plant">submit</button>
-                {/* <nav className="save-plant">
-                    <button onChange={onChange}>Save Plant</button>
-                </nav>
-                <nav className="delete-plant">
-                    <button onChange={onChange}>Delete Plant</button>
-                </nav> */}
             </div>
         </form>
     )

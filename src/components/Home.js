@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import "./Home.css"
 
 const initialValues = {
     username: "",
@@ -33,8 +34,6 @@ export default function Login() {
             setFormValues(initialValues)
         })
     };
-
-
 
     return (
         <>
@@ -73,7 +72,6 @@ export default function Login() {
                 </div>
 
                 <button id='login'>Login</button>
-
             </form>
         </>
     )

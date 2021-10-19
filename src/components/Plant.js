@@ -14,7 +14,7 @@ export default function Plant(props) {
                 
                 <button>edit</button>
                 <button>delete</button>
-
+                
             </div>
         </>
     )

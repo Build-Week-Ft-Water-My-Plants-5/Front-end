@@ -3,24 +3,22 @@ import styled from "styled-components";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../Form_Schema";
-import "./plantForm.css"
+import "./PlantForm.css"
+
 
 const initial_disabled = true;
-
 const initial_form_values = {
     nickname: "",
     species: "",
     h2oFrequency: "",
     image:""
 }
-
 const initial_form_errors={
     nickname:"",
     species:"",
     h2oFrequency:"",
     image:""
 }
-
 export default function PlantForm(props){
     const { plants, set_plant_values} = props
 
@@ -31,9 +29,11 @@ export default function PlantForm(props){
 
 
     const post_new_plant = new_plant => {
-        axios.post("https://watermyplantsbwweb46.herokuapp.com/api", new_plant)
+        axios.post("https://watermyplantsbwweb46.herokuapp.com/api/plants", new_plant)
             .then(res=> {
+                console.log(res)
                 set_plant_values([res.data, ...plants])
+                console.log(plants)
             })
             .catch(err => {
                 console.error(err)
@@ -132,8 +132,8 @@ export default function PlantForm(props){
                         name='image'
                         value={form_values.image}
                     />
-                </label>
-                <button disabled={disabled} className="save-plant">submit</button>
+                </label><br/>
+                <button disabled={disabled} className="save-plant">Save New Plant</button>
             </div>
         </form>
     )

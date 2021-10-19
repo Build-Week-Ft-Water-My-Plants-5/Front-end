@@ -8,8 +8,8 @@ import PlantForm from "./components/PlantForm";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
-
 import Header from "./components/Header"
+import UserProfile from "./components/UserProfile";
 
 const initial_plant_values = [];
 
@@ -33,6 +33,10 @@ function App() {
             </div>
        
             <Switch>
+                <Route path="/profile">
+                    <UserProfile/>
+                </Route>
+
                 <Route path="/PlantForm">
                     <PlantForm plants = {plants} set_plant_values={set_plant_values}/>
                 </Route>

@@ -26,7 +26,7 @@ export default function Plant(props) {
     }
 
 
-    const form_submit = evt => {
+    const update_form = evt => {
         const update_plant = {
             nickname: evt.nickname.trim(),
             species: evt.species.trim(),
@@ -48,8 +48,8 @@ export default function Plant(props) {
                 <p>{plant.h2oFrequency}</p>
                 <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
                 
-                <button>edit</button>
-                <button>delete</button>
+                <button onChange={update_form}>Edit Plant</button>
+                <button onChange={delete_plant}>Delete Plant</button>
                 
             </div>
         </>

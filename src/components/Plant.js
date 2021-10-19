@@ -3,6 +3,10 @@ import React from "react";
 export default function Plant(props) {
     const {plant} = props;
     console.log(plant)
+
+
+
+
     return (
         <>
             <div className="plant-card">

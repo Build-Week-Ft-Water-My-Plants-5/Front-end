@@ -55,11 +55,11 @@ function App() {
       }
 
 
-    const validate = (name, value) => {
-        yup.reach(schema, name)
-            .validate(value)
-            .then(() => )
-    }
+    // const validate = (name, value) => {
+    //     yup.reach(schema, name)
+    //         .validate(value)
+    //         .then(() => )
+    // }
 
     return (
      <>

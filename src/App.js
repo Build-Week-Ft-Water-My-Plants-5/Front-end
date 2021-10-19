@@ -47,7 +47,6 @@ function App() {
                     <Signup />
                 </Route>
                 <Route path="/login" component={Login}/>
-                    
                 <Route path="/">
                     <Home />
                 </Route>

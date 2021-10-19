@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  /* display:flex; */
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:100%;
 }
 
 .App-header {
@@ -11,6 +16,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width:100%;
 }
 
 .App-link {
@@ -23,7 +29,6 @@ body {
 }
 
 .header-link {
-  /*border: 1px red solid;*/
   text-decoration: none;
   color: lightseagreen;
 }

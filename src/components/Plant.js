@@ -38,8 +38,6 @@ export default function Plant(props) {
         edit_plant(update_plant)
     }
 
-
-console.log(plant)
     return (
         <>
             <div className="plant-card">

@@ -5,6 +5,7 @@ import * as yup from "yup";
 import schema from "../Form_Schema";
 import "./PlantForm.css"
 
+
 const initial_disabled = true;
 const initial_form_values = {
     nickname: "",
@@ -94,7 +95,7 @@ export default function PlantForm(props){
                 </div>
             </div>
 
-            <div className='form-group inputs'>
+            <div className='form-group-inputs'>
                 <h3>User Information</h3>
                 <label>Nickname &nbsp;
                     <input
@@ -133,8 +134,6 @@ export default function PlantForm(props){
                     />
                 </label><br/>
                 <button disabled={disabled} className="save-plant">Save New Plant</button>
-
-
             </div>
         </form>
     )

@@ -26,7 +26,7 @@ export default function Login() {
         axios.post('https://watermyplantsweb46.herokuapp.com/api/auth/login', formValues)
         .then((res) => {
             window.localStorage.setItem('token', res.data.token);
-            push('/Plant_List');
+            push('/PlantList');
         })
         .catch(err => {
             console.log(err.message);

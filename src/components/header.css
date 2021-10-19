@@ -12,3 +12,7 @@ nav{
 h1{
     width:30%;
 }
+
+nav a:hover{
+    font-weight:bold;
+}

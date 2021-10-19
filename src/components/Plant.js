@@ -4,6 +4,8 @@ import axios from "axios";
 export default function Plant(props) {
     const {plant} = props;
 
+
+
     const delete_plant = (existing_pant) => {
         axios.delete("https://watermyplantsweb46.herokuapp.com/plant/:id" ,existing_pant)
             .then(res => {

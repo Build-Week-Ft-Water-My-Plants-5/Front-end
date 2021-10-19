@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./UserProfile.css";
 
 export default function UserProfile() {
 
@@ -16,9 +17,13 @@ export default function UserProfile() {
 
 
 
-
     return(
-        <h3>User Profile</h3>
+        <div>
+            <h3>User Profile</h3>
+            <button>
+                Edit User
+            </button>
+        </div>
     )
 }
 

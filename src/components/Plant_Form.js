@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import styled from "styled-components";
+
 
 export default function Plant_Form(props){
     const{
@@ -54,13 +56,19 @@ export default function Plant_Form(props){
                     />
                 </label>
                 <label>How often do you water this plant? &nbsp;
-                    <input
-                        value={form_values.h2oFrequency}
-                        onChange={onChange}
-                        name='h2oFrequency'
-                        type='text'
-                        placeholder='Water schedule?'
-                    />
+                    {/*<input*/}
+                    {/*    value={form_values.h2oFrequency}*/}
+                    {/*    onChange={onChange}*/}
+                    {/*    name='h2oFrequency'*/}
+                    {/*    type='text'*/}
+                    {/*    placeholder='Water schedule?'*/}
+                    {/*/>*/}
+                    <select name="h2oFrequency" onChange={onChange}>
+                        <option value="Twice a day">Twice a day</option>
+                        <option value="Once a day">Once a day</option>
+                        <option value="Every other day">Every other day</option>
+                        <option value="Twice a week">Twice a week</option>
+                    </select><br/><br/>
                 </label>
                 <label>Image: &nbsp;
                     <input
@@ -71,6 +79,12 @@ export default function Plant_Form(props){
                         alt="Plant image"
                     />
                 </label>
+                <nav className="save-plant">
+                    <button onChange={onChange}>Save Plant</button>
+                </nav>
+                <nav className="delete-plant">
+                    <button onChange={onChange}>Delete Plant</button>
+                </nav>
             </div>
         </form>
     )

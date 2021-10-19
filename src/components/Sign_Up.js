@@ -40,8 +40,7 @@ export default function Signup() {
                 <p>Already have an account? Login here!</p>
 
                 <div className="form-inputs" id="signup-inputs">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                      <input
                         value="phonenumber"
                         name="phone"
@@ -62,9 +61,7 @@ export default function Signup() {
                         type="password"
                         placeholder="password"
                     />
-=======
-=======
->>>>>>> f449077c08b91d93342c71a545a7194b7eb94a94
+
                     <label htmlFor="username">Username:</label>
                     <input
                         value=""
@@ -90,12 +87,7 @@ export default function Signup() {
                         name="phonenumber"
                         type="tel"
                         onChange={handleChange}
-<<<<<<< HEAD
                     />
->>>>>>> a03fe8610642afe491edd9a91f20d943e2263457
-=======
-                    />  
->>>>>>> f449077c08b91d93342c71a545a7194b7eb94a94
                 </div>
 
                 <div className="errors">

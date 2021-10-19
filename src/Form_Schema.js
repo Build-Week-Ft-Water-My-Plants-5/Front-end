@@ -12,11 +12,12 @@ const form_schema = yup.object().shape({
         .string()
         .trim()
         .min(2, "Specie names must be at least 2 characters")
-        .required("Nickname is required."),
+        .required("Species is required."),
     h2oFrequency: yup
         .string()
-        .trim()
-        .required("Nickname is required."),
+        .oneOf(["Twice a day", "Once a day", "Every other day", "Twice a week"],
+                "Please choose watering schedule: ")
+        .required("Watering schedule is required."),
     image:yup
         .string()
         .trim()

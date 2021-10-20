@@ -17,8 +17,7 @@ export default function PlantsList(props) {
             .catch(err => {
                 console.error(err)
             })
-
-
+  
     return (
         <div>
             {
@@ -32,6 +31,7 @@ export default function PlantsList(props) {
         </div>
     )
 }
+
 
 
 

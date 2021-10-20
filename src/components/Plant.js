@@ -4,22 +4,22 @@ import { useHistory } from "react-router-dom";
 
 export default function Plant(props) {
     const { push } = useHistory();
-    const { plant, plants, set_plant_values} = props;
 
-
+    const {plant, set_plant_values, plants} = props;
 
 
     const delete_plant = () => {
-
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
-                console.log(res);
-              push('/PlantsList');
+            set_plant_values([res.data])
+            push('/PlantsList');
+
             })
             .catch(err => {
                 console.error(err)
             })
     }
+
 
 
     const edit_plant = () => {

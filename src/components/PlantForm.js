@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import * as yup from "yup";
 import schema from "../Form_Schema";
-import "./plantForm.css"
+import "./PlantForm.css"
 import axiosWithAuth from "./axiosWithAuth";
 
 
@@ -19,7 +19,7 @@ const initial_form_errors={
     image:""
 }
 export default function PlantForm(props){
-    const { plants, set_plant_values} = props
+    const { plants, plant, set_plant_values} = props
 
     const [form_values, set_form_values] = useState(initial_form_values);
     const [disabled, set_disabled] = useState(initial_disabled);

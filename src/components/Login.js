@@ -38,28 +38,28 @@ export default function Login() {
 
     return (
         <>
-            <div className="main-container">
+            <div className="login-container">
                 <form id="login-form" onSubmit={handleSubmit}>
-                    <div className="form-header">
+                    <div className="login-form-header">
                         <h1>Login to view your plants.</h1>
-                        <p>Don't have a login? <Link to="/signup">Create one!</Link></p>
+                        <p>Don't have a login? <Link id="signup" to="/signup">Create one!</Link></p>
                     </div>
 
-                    <div className="input-container">
+                    <div className="login-input-container">
                         <div className='form-inputs' id='login-inputs'>
+                            <label>Username:</label>
                             <input
                                 value={formValues.username}
                                 name="username"
                                 type="text"
-                                placeholder="username"
                                 onChange={handleChange}
                             />
 
+                            <label>Password:</label>
                             <input
                                 value={formValues.password}
                                 name="password"
                                 type="password"
-                                placeholder="password"
                                 onChange={handleChange}
                             />
                         </div>
@@ -68,7 +68,7 @@ export default function Login() {
 
                         </div>
 
-                        <button id="login">Login</button>
+                        <button id="login-button">Login</button>
                     </div>
                 </form>
             </div>

@@ -43,14 +43,14 @@ export default function Signup() {
 
     return (
         <>
-            <div className="main-container">
+            <div className="signup-container">
                 <form id='signup-form' onSubmit={handleSubmit}>
-                    <div className="form-header">
+                    <div className="signup-form-header">
                         <h1>Create an account</h1>
                         <p>Already have an account? <Link id ="login" to="/login">Login here!</Link></p>
                     </div>
 
-                    <div className="input-container">
+                    <div className="signup-input-container">
                         <div className="form-inputs" id="signup-inputs">
                                 <label htmlFor="username">Username:</label>
                                 <input

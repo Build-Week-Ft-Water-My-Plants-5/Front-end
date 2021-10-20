@@ -4,6 +4,7 @@ import axios from "axios";
 import axiosWithAuth from "./axiosWithAuth";
 
 
+
 export default function PlantsList(props) {
     const {plants, set_plant_values} = props;
 
@@ -22,7 +23,6 @@ export default function PlantsList(props) {
         <div>
             {
                 plants.map(plant => {
-                    // console.log(plant)
                     return (
                         <Plant key={plant.plants_id} plant={plant}  plants={plants} set_plant_values={set_plant_values}/>
                     )

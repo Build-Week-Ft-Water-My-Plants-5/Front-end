@@ -11,7 +11,6 @@ export default function Plant(props) {
 
     const delete_plant = () => {
 
-
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
                 console.log(res);
@@ -20,13 +19,9 @@ export default function Plant(props) {
             .catch(err => {
                 console.error(err)
             })
-            // .finally( () => {
-            //     set_plant_values([plant, ...plants])
-            // }
-        // )
     }
 
-},[])
+
     const edit_plant = () => {
         console.log(plant)
         axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`,plant)
@@ -53,7 +48,7 @@ export default function Plant(props) {
 
     return (
         <>
-            <form className="plant-card">
+            <div className="plant-card">
                 <h3>Plant Info</h3>
                 <p>Nickname: {plant.nickname}</p>
                 <p>Species: {plant.species}</p>
@@ -61,7 +56,7 @@ export default function Plant(props) {
                 <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
                 <button onChange={update_form}>Edit Plant</button>
                 <button onClick={delete_plant}>Delete Plant</button>
-            </form>
+            </div>
 
         </>
     )

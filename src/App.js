@@ -15,15 +15,17 @@ import UserProfile from "./components/UserProfile";
 
 
 
+
 function App() {
+
 
     return (
     <div className="App">
             <div>
                 <Header />
             </div>
-
-            <div id="app-body">
+       
+         <div id="app-body">
                 <Switch>
                     <Route path="/profile">
                         <UserProfile/>

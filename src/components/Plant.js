@@ -7,10 +7,12 @@ export default function Plant(props) {
     const {plant, set_plant_values} = props;
 
 
-    const delete_plant = (existing_plant) => {
-        axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${existing_plant.id}`, existing_plant)
+    const delete_plant = (e) => {
+        e.preventDefault();
+        console.log(plant)
+        axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
-                push('/PlantList');
+              push('/PlantList');
             })
             .catch(err => {
                 console.error(err)
@@ -24,9 +26,7 @@ export default function Plant(props) {
             .catch(err => {
                 console.error(err);
             })
-
     }
-
 
     const update_form = evt => {
         const update_plant = {
@@ -40,17 +40,15 @@ export default function Plant(props) {
 
     return (
         <>
-            <div className="plant-card">
+            <form className="plant-card">
                 <h3>Plant Info</h3>
                 <p>{plant.nickname}</p>
                 <p>{plant.species}</p>
                 <p>{plant.h2oFrequency}</p>
                 <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
-                
                 <button onChange={update_form}>Edit Plant</button>
-                <button onChange={delete_plant}>Delete Plant</button>
-                
-            </div>
+                <button onClick={delete_plant}>Delete Plant</button>
+            </form>
         </>
     )
 

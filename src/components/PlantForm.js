@@ -26,11 +26,10 @@ export default function PlantForm(props){
     const [errors, set_errors]=useState(initial_form_errors);
 
 
-
     const post_new_plant = new_plant => {
-        axiosWithAuth().post("https://watermyplantsbwweb46.herokuapp.com/api/plants", new_plant)
+
+        axiosWithAuth().post(`https://watermyplantsweb46.herokuapp.com/api/plants`, new_plant)
             .then(res=> {
-                console.log(res)
                 set_plant_values([res.data, ...plants])
                 console.log(plants)
             })
@@ -40,7 +39,6 @@ export default function PlantForm(props){
             .finally( () =>{
                 set_form_values(initial_form_values)
             })
-
     }
 
     const validate = (name, value) => {

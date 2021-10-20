@@ -1,9 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Plant from "./Plant";
+import axios from "axios";
+import axiosWithAuth from "./axiosWithAuth";
 
 
 export default function PlantsList(props) {
     const {plants, set_plant_values} = props;
+
+    useEffect(() => {
+        axiosWithAuth().get("https://watermyplantsweb46.herokuapp.com/api/plants")
+            .then(res => {
+                set_plant_values(res.data, ...plants)
+                console.log(plants)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
 
     return (
         <div>

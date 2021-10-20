@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styled from "styled-components";
-import axios from "axios";
 import * as yup from "yup";
 import schema from "../Form_Schema";
 import "./plantForm.css"

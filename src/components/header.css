@@ -2,9 +2,7 @@ header{
     display: flex;
     width:100%;
     flex-direction:column;
-    /* position: fixed;  */
     top: 0;
-    /* overflow: hidden; */
     background-color:#F0FFFF ;
 }
 nav{
@@ -14,8 +12,8 @@ nav{
     align-items:center;
     padding:10px;
     background-color:white;
-    border-top: 1px dashed lightseagreen;
-    border-bottom: 1px dashed lightseagreen;
+    /*border-top: 1px dashed lightseagreen;*/
+    /*border-bottom: 1px dashed lightseagreen;*/
 }
 h1{
     width:100%;

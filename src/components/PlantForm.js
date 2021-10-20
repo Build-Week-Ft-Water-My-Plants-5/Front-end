@@ -81,7 +81,8 @@ export default function PlantForm(props){
     }
 
     return(
-        <form className='form-container' onSubmit={onSubmit} >
+        <div id="plantform">
+        <form className='plant-form-container' onSubmit={onSubmit} >
             <div className='form-inputs submit'>
                 <h2>Add New Plant</h2>
                 <div className='errors'>
@@ -133,6 +134,7 @@ export default function PlantForm(props){
                 <button disabled={disabled} className="save-plant">Save New Plant</button>
             </div>
         </form>
+        </div>
     )
 }
 

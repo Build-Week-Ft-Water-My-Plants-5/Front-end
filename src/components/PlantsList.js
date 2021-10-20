@@ -24,7 +24,7 @@ export default function PlantsList(props) {
                 plants.map(plant => {
                     // console.log(plant)
                     return (
-                        <Plant key={plant.plants_id} plant={plant}  plants={plants} set_plant_values={set_plant_values}/>
+                        <Plant plant={plant} key={plant} set_plant_values={set_plant_values}/>
                     )
                 })
             }

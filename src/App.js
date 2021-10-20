@@ -2,7 +2,6 @@ import React, {useEffect, useState } from "react"
 import './App.css';
 import axios from 'axios';
 import { Route, Switch } from "react-router-dom";
-
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import Signup from "./components/Sign_Up";
@@ -12,15 +11,23 @@ import Footer from "./components/Footer";
 import PlantsList from "./components/PlantsList";
 import Header from "./components/Header"
 import UserProfile from "./components/UserProfile";
-
-
-
-
+const initial_plant_values = [];
 function App() {
+    const [plants, set_plant_values] = useState(initial_plant_values);
+
+    useEffect(() => {
+        axios.get("https://watermyplantsweb46.herokuapp.com/api")
+            .then(res => {
+                // console.log(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
 
 
     return (
-    <div className="App">
+        <div className="App">
             <div>
                 <Header />
             </div>
@@ -35,11 +42,7 @@ function App() {
                     <Route path="/signup">
                         <Signup />
                     </Route>
-
                     <Route path="/login" component={Login}/>
-
-                    <Route path="/login" component={Login}/>                    
-
                     <Route path="/">
                         <Home />
                     </Route>
@@ -48,8 +51,6 @@ function App() {
             <Footer/>
     </div>
     
-
     )
 }
-
 export default App;

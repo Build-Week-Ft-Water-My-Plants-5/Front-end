@@ -1,17 +1,13 @@
 import React, {useEffect} from "react";
 import axiosWithAuth from "./axiosWithAuth";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { deletePlant } from "../actions/plantActions";
 
 export default function Plant(props) {
     const { push } = useHistory();
     const { plant, plants, set_plant_values} = props;
 
-
-
-
     const delete_plant = () => {
-
-
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
                 console.log(res);
@@ -26,7 +22,6 @@ export default function Plant(props) {
         // )
     }
 
-},[])
     const edit_plant = () => {
         console.log(plant)
         axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`,plant)

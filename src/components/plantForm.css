@@ -17,6 +17,7 @@
     align-items: center;
     /* margin: 10% auto; */
 }
+
 .form-group-inputs{
     display:flex;
     flex-direction:column;

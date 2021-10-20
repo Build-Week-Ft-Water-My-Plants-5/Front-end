@@ -10,7 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/Plant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Plant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PlantForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlantForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PlantForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlantForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlantsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlantsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,8 @@
       <workItem from="1634657928029" duration="1104000" />
       <workItem from="1634659046700" duration="20012000" />
       <workItem from="1634689577767" duration="10681000" />
-      <workItem from="1634744753685" duration="2385000" />
+      <workItem from="1634744753685" duration="2803000" />
+      <workItem from="1634747606712" duration="4466000" />
     </task>
     <servers />
   </component>

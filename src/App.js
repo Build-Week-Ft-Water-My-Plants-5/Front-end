@@ -27,7 +27,7 @@ function App() {
        
             <Switch>
                 <Route path="/profile">
-                    <UserProfile/>
+                    <UserProfile />
                 </Route>
                 <PrivateRoute path="/PlantForm">
                     <PlantForm plants = {plants} set_plant_values={set_plant_values}/>

@@ -38,34 +38,40 @@ export default function Login() {
 
     return (
         <>
-            <form id="login-form" onSubmit={handleSubmit}>
-                <h1>Login to view your plants.</h1>
-                <p>Don't have a login? <Link to="/signup">Create one!</Link></p>
+            <div className="main-container">
+                <form id="login-form" onSubmit={handleSubmit}>
+                    <div className="form-header">
+                        <h1>Login to view your plants.</h1>
+                        <p>Don't have a login? <Link to="/signup">Create one!</Link></p>
+                    </div>
 
-                <div className='form-inputs' id='login-inputs'>
-                    <input
-                        value={formValues.username}
-                        name="username"
-                        type="text"
-                        placeholder="username"
-                        onChange={handleChange}
-                    />
+                    <div className="input-container">
+                        <div className='form-inputs' id='login-inputs'>
+                            <input
+                                value={formValues.username}
+                                name="username"
+                                type="text"
+                                placeholder="username"
+                                onChange={handleChange}
+                            />
 
-                    <input
-                        value={formValues.password}
-                        name="password"
-                        type="password"
-                        placeholder="password"
-                        onChange={handleChange}
-                    />
-                </div>
+                            <input
+                                value={formValues.password}
+                                name="password"
+                                type="password"
+                                placeholder="password"
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                <div className="errors">
+                        <div className="errors">
 
-                </div>
+                        </div>
 
-                <button id="login">Login</button>
-            </form>
+                        <button id="login">Login</button>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }

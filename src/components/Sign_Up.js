@@ -28,13 +28,14 @@ export default function Signup() {
         e.preventDefault();
         axios.post('https://watermyplantsweb46.herokuapp.com/api/auth/register', formValues)
         .then((res) => {
+
             push('./login');
         })
         .catch(err => {
             console.log(err.message);
         })
         .finally(() => {
-            setFormValues(formValues);
+            setFormValues(formValues)
             console.log(formValues);
         })
     };

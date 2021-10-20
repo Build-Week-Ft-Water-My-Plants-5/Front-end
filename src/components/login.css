@@ -1,5 +1,31 @@
+/* .main-container {
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 5%;
+}
+
+.form-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 #login {
     color:lightseagreen;
     background-color: #F0FFFF;
-    /* border: none; */
+    border: none;
+} */
+
+#login-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-container {
+    height: 50vh;
 }

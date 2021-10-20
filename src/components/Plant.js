@@ -9,8 +9,6 @@ export default function Plant(props) {
 
 
     const delete_plant = () => {
-        // e.preventDefault();
-        console.log(plant)
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
             set_plant_values([res.data])
@@ -20,16 +18,13 @@ export default function Plant(props) {
             .catch(err => {
                 console.error(err)
             })
-            // .finally( () => {
-            //     set_plant_values([plant, ...plants])
-            // }
-        // )
     }
 
 
 
-    const edit_plant = (plant) => {
-        axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.id}`,plant)
+    const edit_plant = () => {
+        console.log(plant)
+        axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`,plant)
             .then(res => {
                 console.log(res.data)
                 set_plant_values([res.data, ...plants])

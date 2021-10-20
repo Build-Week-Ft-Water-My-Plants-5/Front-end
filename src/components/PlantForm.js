@@ -22,7 +22,7 @@ export default function PlantForm(props){
     const { plants, set_plant_values} = props
 
     const [form_values, set_form_values] = useState(initial_form_values);
-    const [disabled, set_disabled] = useState(initial_disabled);
+    const [disabled, set_disabled] = useState(false);
     const [errors, set_errors]=useState(initial_form_errors);
 
 

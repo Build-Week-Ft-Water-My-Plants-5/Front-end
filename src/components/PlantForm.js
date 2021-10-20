@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import * as yup from "yup";
 import schema from "../Form_Schema";
-import "./plantForm.css"
+import "./PlantForm.css"
 import axiosWithAuth from "./axiosWithAuth";
 
 

@@ -2,20 +2,9 @@
     display: flex;
     flex-direction:column;
     justify-content:space-around;
-    width:350px;
-    background-color:rgba(7, 7, 7, 0.096);
-    align-items:center;
-    padding-bottom:30px;
-    border-radius: 10px;
+    width:100%;
 }
 .form-group-inputs{
     display:flex;
     flex-direction:column;
-    width:70%;
-    text-align:center;
-}
-button {
-    background-color: #F0FFFF;
-    border: none;
-    color: lightseagreen;
 }

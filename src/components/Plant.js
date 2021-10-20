@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosWithAuth from "./axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 export default function Plant(props) {
@@ -8,16 +8,16 @@ export default function Plant(props) {
 
 
     const delete_plant = (existing_plant) => {
-        axios.delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${existing_plant.id}`, existing_plant)
+        axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${existing_plant.id}`, existing_plant)
             .then(res => {
-                props.push('/PlantList');
+                push('/PlantList');
             })
             .catch(err => {
                 console.error(err)
             })
     }
     const edit_plant = (plant) => {
-        axios.put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.id}`,plant)
+        axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.id}`,plant)
             .then(res => {
                 set_plant_values([res.data, ...plant])
             })

@@ -12,7 +12,7 @@ export default function Plant(props) {
         console.log(plant)
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
-              push('/PlantList');
+              props.push('/PlantList');
             })
             .catch(err => {
                 console.error(err)
@@ -42,9 +42,9 @@ export default function Plant(props) {
         <>
             <form className="plant-card">
                 <h3>Plant Info</h3>
-                <p>{plant.nickname}</p>
-                <p>{plant.species}</p>
-                <p>{plant.h2oFrequency}</p>
+                <p>Nickname: {plant.nickname}</p>
+                <p>Species: {plant.species}</p>
+                <p>Water frequency? {plant.h2oFrequency}</p>
                 <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
                 <button onChange={update_form}>Edit Plant</button>
                 <button onClick={delete_plant}>Delete Plant</button>

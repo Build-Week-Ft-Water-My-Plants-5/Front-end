@@ -10,7 +10,9 @@ export default function Plant(props) {
     const delete_plant = (existing_plant) => {
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${existing_plant.id}`, existing_plant)
             .then(res => {
-                push('/PlantList');
+
+              props.push('/PlantList');
+
             })
             .catch(err => {
                 console.error(err)
@@ -24,7 +26,6 @@ export default function Plant(props) {
             .catch(err => {
                 console.error(err);
             })
-
     }
 
 

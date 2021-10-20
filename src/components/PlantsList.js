@@ -18,19 +18,23 @@ export default function PlantsList(props) {
             })
     }, [])
 
-    return (
-        <div>
-            {
-                plants.map(plant => {
-                    console.log(plant)
-                    return (
-                        <Plant plant={plant} key={plant} set_plant_values={set_plant_values}/>
-                    )
-                })
-            }
+        if(plants.length<1){
+            return <p>Add a plant!</p>
+        }
+        return(
+            <div>
+                {
+                    plants.map(plant => {
+                        console.log(plant)
+                        return (
+                            <Plant plant={plant} key={plant} plants={plants} set_plant_values={set_plant_values}/>
+                        )
+                    })
+                }
+            </div>
+        )
 
-        </div>
-    )
+    
 }
 
 

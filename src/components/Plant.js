@@ -4,20 +4,23 @@ import { useHistory } from "react-router-dom";
 
 export default function Plant(props) {
     const { push } = useHistory();
-    const {plant, set_plant_values} = props;
+    const {plant, set_plant_values, plants} = props;
 
 
-    const delete_plant = (e) => {
-        e.preventDefault();
+    const delete_plant = () => {
+        // e.preventDefault();
         console.log(plant)
         axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
-              props.push('/PlantList');
+            set_plant_values([res.data])
+            push('/PlantsList');
             })
             .catch(err => {
                 console.error(err)
             })
     }
+
+
     const edit_plant = (plant) => {
         axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.id}`,plant)
             .then(res => {
@@ -40,7 +43,7 @@ export default function Plant(props) {
 
     return (
         <>
-            <form className="plant-card">
+            <div className="plant-card">
                 <h3>Plant Info</h3>
                 <p>Nickname: {plant.nickname}</p>
                 <p>Species: {plant.species}</p>
@@ -48,7 +51,7 @@ export default function Plant(props) {
                 <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
                 <button onChange={update_form}>Edit Plant</button>
                 <button onClick={delete_plant}>Delete Plant</button>
-            </form>
+            </div>
         </>
     )
 

@@ -1,26 +1,38 @@
-import React from "react";
+import React, {useEffect} from "react";
 import axiosWithAuth from "./axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 export default function Plant(props) {
     const { push } = useHistory();
-    const {plant, set_plant_values} = props;
+    const { plant, plants, set_plant_values} = props;
+
+useEffect(() => {
+
+    const delete_plant = () => {
 
 
-    const delete_plant = (existing_plant) => {
-        console.log(existing_plant.id)
-        axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${existing_plant.id}`, existing_plant)
+        axiosWithAuth().delete(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`, plant)
             .then(res => {
-              push('/PlantList');
+                console.log(res);
+              push('/PlantsList');
             })
             .catch(err => {
                 console.error(err)
             })
+            // .finally( () => {
+            //     set_plant_values([plant, ...plants])
+            // }
+        // )
     }
-    const edit_plant = (plant) => {
-        axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.id}`,plant)
+
+},[])
+    const edit_plant = () => {
+        console.log(plant)
+        axiosWithAuth().put(`https://watermyplantsweb46.herokuapp.com/api/plants/${plant.plants_id}`,plant)
             .then(res => {
-                set_plant_values([res.data, ...plant])
+                console.log(res.data)
+                set_plant_values([res.data, ...plants])
+                console.log(plant)
             })
             .catch(err => {
                 console.error(err);
@@ -29,13 +41,14 @@ export default function Plant(props) {
 
     const update_form = evt => {
         const update_plant = {
-            nickname: evt.nickname.trim(),
-            species: evt.species.trim(),
+            nickname: evt.nickname,
+            species: evt.species,
             h2oFrequency: evt.h2oFrequency,
-            image: evt.image.trim()
+            image: evt.image
         }
-        edit_plant(update_plant)
+        edit_plant()
     }
+
 
     return (
         <>
@@ -44,10 +57,9 @@ export default function Plant(props) {
                 <p>{plant.nickname}</p>
                 <p>{plant.species}</p>
                 <p>{plant.h2oFrequency}</p>
-                <img src={`${plant.image}`} alt={`Image of a ${plant.nickname}.`}/>
-                
-                <button onChange={update_form}>Edit Plant</button>
-                <button onChange={delete_plant}>Delete Plant</button>
+                <img src={plant.image} alt={`Image of a ${plant.nickname}.`}/>
+                <button onClick={update_form}>Edit Plant</button>
+                <button onClick={delete_plant}>Delete Plant</button>
                 
             </div>
         </>

@@ -1,16 +1,31 @@
 header{
     display: flex;
     width:100%;
-    justify-content:space-around;
+    flex-direction:column;
+    /* position: fixed;  */
+    top: 0;
+    /* overflow: hidden; */
+    background-color:#F0FFFF ;
 }
 nav{
     display:flex;
     justify-content:space-around;
-    width:70%;
+    width:100%;
     align-items:center;
+    padding:10px;
+    background-color:white;
+    border-top: 1px dashed lightseagreen;
+    border-bottom: 1px dashed lightseagreen;
 }
 h1{
-    width:30%;
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    padding-left:20px;
+    height:50px;
+    font-size:3rem;
+    margin:20px;
 }
 
 nav a:hover{
